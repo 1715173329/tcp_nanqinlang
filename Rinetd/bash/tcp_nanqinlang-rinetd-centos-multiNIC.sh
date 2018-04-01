@@ -38,7 +38,7 @@ check_requirement(){
 	for CMD in iptables grep cut xargs ip awk
 	do
 		if ! type -p ${CMD}; then
-			echo -e "${Error} requirements not found, please check !" && exit 1
+			echo -e "${Error} requirement not found, please check !" && exit 1
 		fi
 	done
 }
@@ -50,6 +50,7 @@ directory(){
 
 download(){
 	wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/Rinetd/module/rinetd
+	[[ ! -f rinetd ]] && echo -e "${Error} rinetd download failed, please check !" && exit 1
 	chmod +x rinetd
 }
 
